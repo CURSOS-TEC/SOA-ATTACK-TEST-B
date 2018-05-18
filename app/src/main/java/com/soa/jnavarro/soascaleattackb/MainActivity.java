@@ -8,23 +8,28 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private Button testButton;
+    private EditText contactName;
+    private EditText contactPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button testButton = (Button) findViewById(R.id.test_button);
+        contactName = (EditText)findViewById(R.id.editTextName);
+        contactPhone =  (EditText)findViewById(R.id.editTextPhone);
+        testButton= (Button) findViewById(R.id.test_button);
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     try {
                         Intent intent = new Intent("com.soa.jnavarro.soascaleattacka.EditContact");
-                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, "5556");
-                        intent.putExtra(ContactsContract.Intents.Insert.NAME, "Test");
+                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, contactPhone.getText().toString());
+                        intent.putExtra(ContactsContract.Intents.Insert.NAME, contactName.getText().toString());
                         getApplicationContext().sendBroadcast(intent);
                         Log.i("Editcontact", " trying to edit email");
                         Context context = getApplicationContext();
@@ -35,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     catch (Exception e){
                         Log.i("Error", e.getMessage());
                     }
-
-
-
-
             }
         });
     }

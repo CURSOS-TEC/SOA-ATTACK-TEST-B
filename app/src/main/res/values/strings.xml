@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SoaScaleAttackB</string>
+    <string name="update"> Update Contact </string>
+    <string name="contact_name">Name</string>
+    <string name="contact_phone">Phone</string>
 </resources>
