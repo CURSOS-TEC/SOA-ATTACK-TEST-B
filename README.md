@@ -26,9 +26,9 @@ Esta aplicación expone los permisos para la escritura y lectura de contactos.
 Se debe de crear un Android Virtual Device basado en API v.15 de Android para poder realizar la prueba.
 Ambos repositorios se deben de clonar como proyectos de Android Studio.
 
-Esta es la aplicación A la cual expone los permisos de lectura y escritura a la libreta de contactos.
+Esta es la aplicación B la cual consume los permisos de lectura y escritura a la libreta de contactos liberados por la app A.
 
-La aplicación B, la encontrará en este repositorio. (Referencia)[]
+La aplicación A, la encontrará en este repositorio. (Referencia)[https://github.com/CURSOS-TEC/SOA-ATTACK-TEST-A]
 
 ### Usage example
 En la aplicación A se debe de ejecutar y luego dejar en segundo plano.
