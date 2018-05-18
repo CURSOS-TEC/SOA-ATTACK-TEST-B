@@ -12,10 +12,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button testButton;
-    private EditText contactName;
-    private EditText contactPhone;
+    private Button mTestButton;
+    private EditText mContactName;
+    private EditText mContactPhone;
 
+    /**
+     * This method sends a general intent.
+     * @param pIntentName the indentifier of the intent.
+     * @param pContactName the name of tha contact to edit
+     * @param pContactPhone the new phone to set
+     */
     public void sendIntent(String pIntentName, String pContactName, String pContactPhone){
         try {
             Intent intent = new Intent(pIntentName);
@@ -37,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        contactName = (EditText)findViewById(R.id.editTextName);
-        contactPhone =  (EditText)findViewById(R.id.editTextPhone);
-        testButton= (Button) findViewById(R.id.test_button);
-        testButton.setOnClickListener(new View.OnClickListener() {
+        mContactName = (EditText)findViewById(R.id.editTextName);
+        mContactPhone =  (EditText)findViewById(R.id.editTextPhone);
+        mTestButton= (Button) findViewById(R.id.test_button);
+        mTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             sendIntent("com.soa.jnavarro.soascaleattacka.EditContact",
-                    contactName.getText().toString(),contactPhone.getText().toString());
+                    mContactName.getText().toString(),mContactPhone.getText().toString());
 
 
             }
