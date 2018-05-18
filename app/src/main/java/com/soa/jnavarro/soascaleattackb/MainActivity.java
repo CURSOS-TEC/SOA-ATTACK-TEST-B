@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                     try {
                         Intent intent = new Intent("com.soa.jnavarro.soascaleattacka.EditContact");
-                        intent.putExtra(ContactsContract.Intents.Insert.EMAIL, "hackedEmail@email.comn");
                         intent.putExtra(ContactsContract.Intents.Insert.PHONE, "5556");
+                        intent.putExtra(ContactsContract.Intents.Insert.NAME, "Test");
                         getApplicationContext().sendBroadcast(intent);
                         Log.i("Editcontact", " trying to edit email");
                         Context context = getApplicationContext();
