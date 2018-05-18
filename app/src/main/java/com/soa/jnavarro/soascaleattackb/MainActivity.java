@@ -16,6 +16,23 @@ public class MainActivity extends AppCompatActivity {
     private EditText contactName;
     private EditText contactPhone;
 
+    public void sendIntent(String pIntentName, String pContactName, String pContactPhone){
+        try {
+            Intent intent = new Intent(pIntentName);
+            intent.putExtra(ContactsContract.Intents.Insert.PHONE,pContactPhone );
+            intent.putExtra(ContactsContract.Intents.Insert.NAME,pContactName);
+            getApplicationContext().sendBroadcast(intent);
+            Log.i("Editcontact", " trying to edit email");
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, intent.getAction(), duration);
+            toast.show();
+        }
+        catch (Exception e){
+            Log.i("Error", e.getMessage());
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +43,11 @@ public class MainActivity extends AppCompatActivity {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    try {
-                        Intent intent = new Intent("com.soa.jnavarro.soascaleattacka.EditContact");
-                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, contactPhone.getText().toString());
-                        intent.putExtra(ContactsContract.Intents.Insert.NAME, contactName.getText().toString());
-                        getApplicationContext().sendBroadcast(intent);
-                        Log.i("Editcontact", " trying to edit email");
-                        Context context = getApplicationContext();
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, intent.getAction(), duration);
-                        toast.show();
-                    }
-                    catch (Exception e){
-                        Log.i("Error", e.getMessage());
-                    }
+
+            sendIntent("com.soa.jnavarro.soascaleattacka.EditContact",
+                    contactName.getText().toString(),contactPhone.getText().toString());
+
+
             }
         });
     }
